@@ -1,5 +1,6 @@
 import React from "react";
 import BotCard from "../components/BotCard";
+import BotsPage from "./BotsPage";
 
 class BotCollection extends React.Component {
   //your code here
@@ -8,8 +9,7 @@ class BotCollection extends React.Component {
   	return (
   	  <div className="ui four column grid">
     		<div className="row">
-    		  {/*...and here..*/}
-    		  Collection of all bots
+    		  {this.props.bots.map( bot => < BotCard bot={bot} enlistBot={this.props.enlistBot} selectCurrentBot={this.props.selectCurrentBot} />)}
     		</div>
   	  </div>
   	);
