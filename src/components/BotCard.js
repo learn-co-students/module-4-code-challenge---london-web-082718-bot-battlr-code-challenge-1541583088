@@ -1,7 +1,8 @@
 import React from "react";
+import BotSpecs from './BotSpecs'
 
 const BotCard = props => {
-  const { bot } = props;
+  const { bot, addToBotArmy, myBotArmy, removeBotFromArmy } = props;
 
   let botType;
 
@@ -19,12 +20,26 @@ const BotCard = props => {
       botType = <div />;
   }
 
+
+
   return (
-    <div className="ui column">
+    <div className="ui column" 
+        // ON Click for adding to Bot Army
+            
+              // !myBotArmy.filter(botArmyBot => botArmyBot===bot) ? 
+                   
+                    // :
+                    // null
+                    // () => removeBotFromArmy(bot)
+                    // 
+          
+
+        // 
+    >
       <div
-        className="ui card"
+        className="ui card" 
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
@@ -33,6 +48,8 @@ const BotCard = props => {
           <div className="header">
             {bot.name} {botType}
           </div>
+          <button onClick={() => addToBotArmy(bot) }>Add me to your army </button>
+          <button onClick={bot => <BotSpecs bot={bot}/> }> Click for more details </button>
 
           <div className="meta text-wrap">
             <small>{bot.catchphrase}</small>
