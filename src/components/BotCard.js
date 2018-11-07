@@ -1,30 +1,28 @@
 import React from "react";
 
-const BotCard = props => {
-  const { bot } = props;
-
+const BotCard = ({ bot, chooseRobot }) => {
   let botType;
 
-  switch (bot.bot_class) {
-    case "Assault":
-      botType = <i className="icon military" />;
-      break;
-    case "Defender":
-      botType = <i className="icon shield" />;
-      break;
-    case "Support":
-      botType = <i className="icon ambulance" />;
-      break;
-    default:
-      botType = <div />;
-  }
+  // switch (bot.bot_class) {
+  //   case "Assault":
+  //     botType = <i className="icon military" />;
+  //     break;
+  //   case "Defender":
+  //     botType = <i className="icon shield" />;
+  //     break;
+  //   case "Support":
+  //     botType = <i className="icon ambulance" />;
+  //     break;
+  //   default:
+  //     botType = <div />;
+  // }
 
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => chooseRobot(bot)}
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
