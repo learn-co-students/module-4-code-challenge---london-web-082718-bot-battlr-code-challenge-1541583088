@@ -1,12 +1,15 @@
 import React from "react";
 import BotCollection from './BotCollection'
 import YourBotArmy from './YourBotArmy'
+import BotSpecs from '../components/BotSpecs'
 
 class BotsPage extends React.Component {
 
   state = {
     bots: [],
-    botArmy: []
+    botArmy: [],
+    currentBot: null,
+    currentPage: 'collection'
   }
    
   getBots = () => {
@@ -28,12 +31,27 @@ class BotsPage extends React.Component {
       null
   }
 
+  selectCurrentBot = (bot) => {
+    this.setState({currentBot: bot})
+    this.renderBotsPage()
+  }
+
+  renderBotsPage = () => {
+    this.state.currentPage === 'collection' ?
+    // something to render YourBotArmy and Bot Collection 
+    null
+    :
+    // something to render BotSpecs for currentBot
+    null
+  }
+
   render() {
     return (
       <div>
+        {/* < BotSpecs bot={this.state.currentBot} enlistBot={this.enlistBot} /> */}
         < YourBotArmy botArmy={this.state.botArmy} />
-        < BotCollection bots={this.state.bots} enlistBot={this.enlistBot} />
-        {/* put your components here */}
+        < BotCollection bots={this.state.bots} enlistBot={this.enlistBot} selectCurrentBot={this.selectCurrentBot} />
+        
       </div>
     );
   }
