@@ -10,7 +10,7 @@ class BotCollection extends React.Component {
     		<div className="row">
     		  {/*...and here..*/}
     		  {
-						this.props.bots.map((bot, idx) => <BotCard key={idx} bot={bot} removeBotFromArmy={this.props.removeBotFromArmy} addBotToArmy={this.props.addBotToArmy} includeMyBots={this.props.myBots.includes(bot)}/> )
+						this.props.bots.map((bot, idx) => <BotCard key={idx} bot={bot} showBot={this.props.showBot} removeBotFromArmy={this.props.removeBotFromArmy} addBotToArmy={this.props.addBotToArmy} includeMyBots={this.props.myBots.includes(bot)}/> )
 					}
     		</div>
   	  </div>

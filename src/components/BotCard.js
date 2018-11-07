@@ -21,15 +21,14 @@ const BotCard = props => {
   }
   // console.log(this.props.includeMyBots)
 
+  
+
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => {
-          props.includeMyBots ?
-          props.removeBotFromArmy(bot) : 
-          props.addBotToArmy(bot) }
+        onClick={ () => props.showBot(bot)
         }
       >
         <div className="image">
