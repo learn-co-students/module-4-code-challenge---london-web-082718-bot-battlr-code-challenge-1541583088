@@ -1,13 +1,15 @@
 import React from "react";
 import BotCollection from "./BotCollection"
 import YourBotArmy from "./YourBotArmy"
+import BotSpecs from "../components/BotSpecs"
 
 const API = 'https://bot-battler-api.herokuapp.com/api/v1/bots'
 
 class BotsPage extends React.Component {
   state = {
     robots: [],
-    army: []
+    army: [],
+    selectedRobot: false
   }
 
   fetchRobots = () => {
@@ -26,11 +28,15 @@ class BotsPage extends React.Component {
     })
   }
 
+  handleSelectedRobot = () => {
+    this.setState({selectedRobot: !this.state.selectedRobot})
+}
+
   render() {
     return (
       <div>
         <YourBotArmy army={this.state.army}/>
-        {<BotCollection robots={this.state.robots} chooseRobot={this.chooseRobot}/>}
+        {this.state.selectedRobot ? <BotSpecs handleSelectedRobot={this.handleSelectedRobot} robots={this.props.robots}/> : <BotCollection robots={this.state.robots} chooseRobot={this.chooseRobot} handleSelectedRobot={this.handleSelectedRobot}/>}
       </div>
     );
   }

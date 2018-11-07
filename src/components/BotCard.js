@@ -1,6 +1,6 @@
 import React from "react";
 
-const BotCard = ({ bot, chooseRobot }) => {
+const BotCard = ({ bot, handleSelectedRobot }) => {
   let botType;
 
   // switch (bot.bot_class) {
@@ -22,7 +22,8 @@ const BotCard = ({ bot, chooseRobot }) => {
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => chooseRobot(bot)}
+        onClick={() => this.handleSelectedRobot}
+        // () => chooseRobot(bot)
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
